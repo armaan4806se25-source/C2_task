@@ -134,3 +134,97 @@ button { cursor: pointer; }
   .card-grid, .footer-main { grid-template-columns: 1fr; }
   .newsletter-form, .newsletter-form input { width: 100%; }
 }
+
+/* ---------- Header: search + Post/Login ---------- */
+.header-search {
+  display: flex; align-items: center; gap: 8px; flex: 1;
+  max-width: 420px; margin: 0 24px; padding: 8px 12px;
+  color: var(--muted); background: var(--page);
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.header-search input {
+  width: 100%; border: 0; outline: 0; background: transparent; font-size: 15px;
+}
+.header-search:focus-within { border-color: var(--teal); }
+.header-link { font-weight: bold; color: #45525d; }
+.header-link:hover { color: var(--teal); }
+
+/* ---------- Login / Sign-up ---------- */
+.auth-page { max-width: 1180px; margin: auto; padding: 60px 24px 90px; }
+.auth-card {
+  position: relative; max-width: 440px; margin: auto; padding: 50px 36px 36px;
+  background: white; border: 1px solid var(--border); border-radius: 15px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 6%);
+}
+.auth-card.wide { max-width: 600px; padding-top: 36px; }
+.auth-title { margin: 0 0 24px; font-size: 24px; color: var(--teal); text-align: center; }
+.signup-tab {
+  position: absolute; top: 14px; right: 16px; padding: 6px 16px;
+  color: var(--teal); font-weight: bold; font-size: 14px;
+  border: 1px solid var(--teal); border-radius: 8px;
+}
+.signup-tab:hover { background: var(--teal); color: white; }
+.field { display: flex; flex: 1; flex-direction: column; margin-bottom: 18px; }
+.field label { margin-bottom: 6px; font-size: 14px; font-weight: bold; }
+.field input { padding: 11px 12px; font-size: 15px; border: 1px solid var(--border); border-radius: 8px; }
+.field input:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; }
+.field-error, .form-error { color: #b3261e; font-size: 13px; margin-top: 5px; }
+.form-error { margin: 0 0 14px; }
+.name-row { display: flex; gap: 16px; }
+.primary-button.full { width: 100%; }
+.primary-button:disabled { opacity: .6; cursor: not-allowed; }
+.primary-button:hover:not(:disabled) { background: var(--dark-teal); }
+
+@media (max-width: 800px) { .header-search { margin: 0 12px; } }
+@media (max-width: 550px) {
+  .name-row { flex-direction: column; gap: 0; }
+  .header-search { display: none; }
+}
+
+/* ---------- New Post page ---------- */
+.post-card {
+  max-width: 800px; margin: auto; padding: 36px;
+  background: white; border: 1px solid var(--border); border-radius: 15px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 6%);
+}
+.post-heading { margin: 0 0 20px; font-size: 28px; color: var(--teal); }
+.post-subheading { margin: 24px 0 4px; font-size: 20px; }
+.post-hint { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
+.type-select { display: flex; align-items: center; gap: 14px; padding: 0; border: 0; }
+.type-select legend { float: left; margin-right: 14px; padding: 0; font-weight: bold; line-height: 40px; }
+.radio {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px;
+  border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-weight: bold;
+}
+.radio.active { color: white; background: var(--teal); border-color: var(--teal); }
+.radio input { accent-color: white; }
+.field textarea {
+  padding: 11px 12px; font: inherit; font-size: 15px; resize: vertical;
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.field textarea:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; }
+.post-actions { display: flex; justify-content: flex-end; }
+.post-actions .primary-button { min-width: 140px; }
+
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  padding: 20px; background: rgb(0 0 0 / 45%);
+}
+.modal {
+  width: 100%; max-width: 380px; padding: 32px; text-align: center;
+  background: white; border-radius: 15px; box-shadow: 0 10px 40px rgb(0 0 0 / 25%);
+}
+.modal h2 { margin: 12px 0 8px; }
+.modal p { margin: 0 0 22px; color: var(--muted); }
+.modal-icon {
+  display: grid; width: 56px; height: 56px; margin: auto; place-items: center;
+  color: white; font-size: 28px; font-weight: bold; border-radius: 50%;
+}
+.modal-success .modal-icon { background: var(--teal); }
+.modal-error .modal-icon { background: #b3261e; }
+.modal .primary-button { min-width: 110px; }
+
+@media (max-width: 550px) {
+  .post-card { padding: 22px; }
+  .type-select { flex-wrap: wrap; }
+}
